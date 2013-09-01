@@ -30,4 +30,7 @@
             1. Lenient threshold
     -->
     <integer name="config_LTE_RSRP_threshold_type">0</integer>
+
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_disabledComponents" />
 </resources>
