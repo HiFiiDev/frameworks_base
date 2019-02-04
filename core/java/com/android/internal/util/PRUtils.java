@@ -18,15 +18,25 @@ package com.android.internal.util;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.SystemClock;
 
+import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
 
 public class PRUtils {
 
     public static boolean deviceHasFlashlight(Context ctx) {
         return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+    }
+
+    public static void switchScreenOff(Context context) {
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        if (pm!= null) {
+            pm.goToSleep(SystemClock.uptimeMillis());
+        }
     }
 
     public static void toggleCameraFlash() {
