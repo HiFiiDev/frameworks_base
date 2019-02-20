@@ -28,6 +28,17 @@ import com.android.internal.statusbar.IStatusBarService;
 
 public class PRUtils {
 
+    private static IStatusBarService mStatusBarService = null;
+    private static IStatusBarService getStatusBarService() {
+        synchronized (PRUtils.class) {
+            if (mStatusBarService == null) {
+                mStatusBarService = IStatusBarService.Stub.asInterface(
+                        ServiceManager.getService("statusbar"));
+            }
+            return mStatusBarService;
+        }
+    }
+
     public static boolean deviceHasFlashlight(Context ctx) {
         return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
@@ -40,30 +51,12 @@ public class PRUtils {
     }
 
     public static void toggleCameraFlash() {
-        FireActions.toggleCameraFlash();
-    }
-
-    private static final class FireActions {
-        private static IStatusBarService mStatusBarService = null;
-
-        private static IStatusBarService getStatusBarService() {
-            synchronized (FireActions.class) {
-                if (mStatusBarService == null) {
-                    mStatusBarService = IStatusBarService.Stub.asInterface(
-                            ServiceManager.getService("statusbar"));
-                }
-                return mStatusBarService;
-            }
-        }
-
-        public static void toggleCameraFlash() {
-            IStatusBarService service = getStatusBarService();
-            if (service != null) {
-                try {
-                    service.toggleCameraFlash();
-                } catch (RemoteException e) {
-                    // do nothing.
-                }
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.toggleCameraFlash();
+            } catch (RemoteException e) {
+                // do nothing.
             }
         }
     }
