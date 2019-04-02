@@ -1107,7 +1107,9 @@ public final class BatteryService extends SystemService {
         public void updateLightsLocked() {
             final int level = mHealthInfo.batteryLevel;
             final int status = mHealthInfo.batteryStatus;
-            if (status == BatteryManager.BATTERY_STATUS_CHARGING && mBatteryLightEnabled) {
+            if ((status == BatteryManager.BATTERY_STATUS_CHARGING
+                    || status == BatteryManager.BATTERY_STATUS_FULL)
+                    && mBatteryLightEnabled) {
                 if (level < mLowBatteryWarningLevel) {
                     // Solid red when low and charging
                     mBatteryLight.setColor(mBatteryLowARGB);
