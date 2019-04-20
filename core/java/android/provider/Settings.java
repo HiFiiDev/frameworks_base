@@ -4176,6 +4176,15 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String WAKEUP_SCREEN_GESTURE = "wakeup_screen_gesture";
+
+        /** @hide */
+        private static final Validator WAKEUP_SCREEN_GESTURE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4240,6 +4249,7 @@ public final class Settings {
             QS_TILE_TITLE_VISIBILITY,
             QS_LAYOUT_ROWS,
             QS_LAYOUT_ROWS_LANDSCAPE,
+            WAKEUP_SCREEN_GESTURE,
         };
 
         /**
@@ -4456,6 +4466,7 @@ public final class Settings {
             VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_ROWS, QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_ROWS_LANDSCAPE, QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
+            VALIDATORS.put(WAKEUP_SCREEN_GESTURE, WAKEUP_SCREEN_GESTURE_VALIDATOR);
         }
 
         /**
