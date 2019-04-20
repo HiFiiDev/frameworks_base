@@ -53,6 +53,13 @@ public class PRUtils {
         }
     }
 
+    public static void switchScreenOn(Context context) {
+        PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        if (pm!= null) {
+            pm.wakeUp(SystemClock.uptimeMillis());
+        }
+    }
+
     public static void toggleCameraFlash() {
         IStatusBarService service = getStatusBarService();
         if (service != null) {
