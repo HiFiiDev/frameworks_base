@@ -3849,17 +3849,29 @@ public final class Settings {
          */
         public static final String SMART_PIXELS_PATTERN = "smart_pixels_pattern";
 
+        /** @hide */
+        public static final Validator SMART_PIXELS_PATTERN_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
         /**
          * Smart Pixels Shift Timeout
          * @hide
          */
         public static final String SMART_PIXELS_SHIFT_TIMEOUT = "smart_pixels_shift_timeout";
 
+        /** @hide */
+        public static final Validator SMART_PIXELS_SHIFT_TIMEOUT_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
         /**
          * Whether Smart Pixels should enable on power saver mode
          * @hide
          */
         public static final String SMART_PIXELS_ON_POWER_SAVE = "smart_pixels_on_power_save";
+
+        /** @hide */
+        public static final Validator SMART_PIXELS_ON_POWER_SAVE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Whether the notification LED should repeatedly flash when a notification is
@@ -4250,6 +4262,9 @@ public final class Settings {
             QS_LAYOUT_ROWS,
             QS_LAYOUT_ROWS_LANDSCAPE,
             WAKEUP_SCREEN_GESTURE,
+            SMART_PIXELS_PATTERN,
+            SMART_PIXELS_SHIFT_TIMEOUT,
+            SMART_PIXELS_ON_POWER_SAVE,
         };
 
         /**
@@ -4467,6 +4482,9 @@ public final class Settings {
             VALIDATORS.put(QS_LAYOUT_ROWS, QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_ROWS_LANDSCAPE, QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(WAKEUP_SCREEN_GESTURE, WAKEUP_SCREEN_GESTURE_VALIDATOR);
+            VALIDATORS.put(SMART_PIXELS_PATTERN, SMART_PIXELS_PATTERN_VALIDATOR);
+            VALIDATORS.put(SMART_PIXELS_SHIFT_TIMEOUT, SMART_PIXELS_SHIFT_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(SMART_PIXELS_ON_POWER_SAVE, SMART_PIXELS_ON_POWER_SAVE_VALIDATOR);
         }
 
         /**
@@ -11224,6 +11242,10 @@ public final class Settings {
          */
         public static final String AGGRESSIVE_BATTERY_SAVER = "aggressive_battery_saver";
 
+        /** @hide */
+        public static final Validator AGGRESSIVE_BATTERY_SAVER_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Get the key that retrieves a bluetooth headset's priority.
          * @hide
@@ -12261,6 +12283,7 @@ public final class Settings {
             SOFT_AP_TIMEOUT_ENABLED,
             ZEN_DURATION,
             CHARGING_VIBRATION_ENABLED,
+            AGGRESSIVE_BATTERY_SAVER,
         };
 
         /**
@@ -12305,6 +12328,7 @@ public final class Settings {
             VALIDATORS.put(APP_AUTO_RESTRICTION_ENABLED, APP_AUTO_RESTRICTION_ENABLED_VALIDATOR);
             VALIDATORS.put(ZEN_DURATION, ZEN_DURATION_VALIDATOR);
             VALIDATORS.put(CHARGING_VIBRATION_ENABLED, CHARGING_VIBRATION_ENABLED_VALIDATOR);
+            VALIDATORS.put(AGGRESSIVE_BATTERY_SAVER, AGGRESSIVE_BATTERY_SAVER_VALIDATOR);
         }
 
         /**
